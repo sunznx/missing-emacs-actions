@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>com.github.sunznx.missing-emacs-actions</id>
+    <name>Missing Emacs Actions</name>
+    <vendor>sunznx</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MissingEmacsActionsBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                factoryClass="com.github.sunznx.MissingEmacsActions.toolWindow.MissingEmacsActionsToolWindowFactory"
+                id="MissingEmacsActionsToolWindow"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener
+                class="com.github.sunznx.MissingEmacsActions.listeners.MissingEmacsActionsApplicationActivationListener"
+                topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+    </applicationListeners>
+
+    <actions>
+        <action
+                id="MissingEmacsActions.actions.KillRegionOrBackwardWord"
+                class="com.github.sunznx.MissingEmacsActions.actions.KillRegionOrBackwardWord"
+                text="KillRegionOrBackwardWord"
+                description="Kill region or backward word">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl W"/>
+        </action>
+    </actions>
+</idea-plugin>
